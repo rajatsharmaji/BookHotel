@@ -1,24 +1,24 @@
-const adultMinus = document.getElementById("adult-minus");
-const adultPlus = document.getElementById("adult-plus");
-const adultValue = document.getElementById("adult-value");
-const childMinus = document.getElementById("child-minus");
-const childPlus = document.getElementById("child-plus");
-const childValue = document.getElementById("child-value");
+const removeAdult = document.getElementById("removeAdult");
+const addAdult = document.getElementById("addAdult");
+const adultValue = document.getElementById("adultValue");
+const removeChild = document.getElementById("removeChild");
+const addChild = document.getElementById("addChild");
+const childValue = document.getElementById("childValue");
 const totalValue = document.getElementById("total-value");
 
-adultPlus.addEventListener("click", function () {
-  adultValue.value = parseInt(adultValue.value) + 1;
+addAdult.addEventListener("click", function () {
+  adultValue.value++;
   totalValue.value = parseInt(adultValue.value) + parseInt(childValue.value);
 });
-adultMinus.addEventListener("click", function () {
+removeAdult.addEventListener("click", function () {
   if (parseInt(adultValue.value) > 1) {
-    adultValue.value = parseInt(adultValue.value) - 1;
+    adultValue.value--;
     totalValue.value = parseInt(adultValue.value) + parseInt(childValue.value);
   }
 });
-childPlus.addEventListener("click", function () {
+addChild.addEventListener("click", function () {
   if (childValue.value < 4) {
-    childValue.value = parseInt(childValue.value) + 1;
+    childValue.value++;
     totalValue.value = parseInt(adultValue.value) + parseInt(childValue.value);
     const selectElement = document.createElement("select");
     selectElement.className = "ageselect mx-2";
@@ -29,9 +29,9 @@ childPlus.addEventListener("click", function () {
   }
 });
 
-childMinus.addEventListener("click", function () {
+removeChild.addEventListener("click", function () {
   if (childValue.value > 0) {
-    childValue.value = parseInt(childValue.value) - 1;
+    childValue.value--;
     totalValue.value = parseInt(adultValue.value) + parseInt(childValue.value);
     const childDiv = document.getElementById("child-div");
     const selectElements = childDiv.getElementsByClassName("ageselect");
